@@ -2,6 +2,6 @@
 #include<stdio.h>
 int main()
 {
-	printf("hello world!\n");
+	printf("welcome to a new world!\n");
 	return 0;
 }
