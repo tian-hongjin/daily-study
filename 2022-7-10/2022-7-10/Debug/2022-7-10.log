@@ -1,0 +1,3 @@
+﻿  test.c
+E:\code_2022\c.code\2022-7-10\2022-7-10\test.c(208,7): warning C4101: “arr”: 未引用的局部变量
+  2022-7-10.vcxproj -> E:\code_2022\c.code\2022-7-10\Debug\2022-7-10.exe
