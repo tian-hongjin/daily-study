@@ -185,37 +185,124 @@
 #include <stdlib.h>  //动态内存管理对应头文件
 #include <string.h>  //strerror对应头文件
 #include <errno.h>   //errno对应头文件
+//
+//int main()
+//{
+//	//先开辟一块空间
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (p == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//
+//	//扩容
+//	//由于realloc可能会开辟失败，为了防止p指向realloc开辟失败的空间，从而丢失原来空间的情况，这里我们使用临时变量来判断realloc是否开辟成功
+//	int* ptr = (int*)realloc(p, 20 * sizeof(int));
+//	//申请失败：打印错误信息并退出
+//	if (ptr == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 1;
+//	}
+//	//申请成功：让p指向该空间并使用
+//	p = ptr;
+//	for (int i = 0; i < 20; i++)
+//	{
+//		p[i] = i;
+//	}
+//	for (int i = 0; i < 20; i++)
+//	{
+//		printf("%d ", p[i]);
+//	}
+//	//使用完：释放
+//	free(p);   //释放动态内存开辟的空间
+//	p = NULL;  //将p置空，防止野指针
+//}
+//
+//void test()
+//{
+//	int* p = (int*)malloc(INT_MAX);
+//	*p = 20;//如果p的值是NULL，就会有问题
+//	free(p);
+//}
 
-int main()
+//void test()
+//{
+//	int i = 0;
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (NULL == p)
+//	{
+//		exit(EXIT_FAILURE);
+//	}
+//	for (i = 0; i <= 10; i++)
+//	{
+//		*(p + i) = i;//当i是10的时候越界访问
+//	}
+//	free(p);
+//}
+
+//void test()
+//{
+//	int a = 10;
+//	int* p = &a;
+//	free(p);
+//}
+
+//void test()
+//{
+//	int i = 0;
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (NULL == p)
+//	{
+//		exit(EXIT_FAILURE);
+//	}
+//	for (i = 0; i < 5; i++)
+//	{
+//		*p = i;
+//		p++;  //指针变量p自增导致其丢失动态内存的起始地址
+//	}
+//	free(p);
+//}
+
+//void test()
+//{
+//	int* p = (int*)malloc(100);
+//	if (p == NULL)
+//	{
+//		exit(-1);
+//	}
+//	free(p);
+//
+//	//.......
+//
+//	free(p);//重复释放
+//}
+
+void test()
 {
-	//先开辟一块空间
 	int* p = (int*)malloc(10 * sizeof(int));
 	if (p == NULL)
 	{
-		printf("%s\n", strerror(errno));
-		return 1;
+		exit(-1);
 	}
+	int flag = 0;
+	scanf("%d", &flag);
+	if (flag == 2)
+	{
+		//...... --程序逻辑
+		return;
+	}
+	else
+	{
+		//...... --程序逻辑
+	}
+	free(p);
+	p = NULL;
+}
 
-	//扩容
-	//由于realloc可能会开辟失败，为了防止p指向realloc开辟失败的空间，从而丢失原来空间的情况，这里我们使用临时变量来判断realloc是否开辟成功
-	int* ptr = (int*)realloc(p, 20 * sizeof(int));
-	//申请失败：打印错误信息并退出
-	if (ptr == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return 1;
-	}
-	//申请成功：让p指向该空间并使用
-	p = ptr;
-	for (int i = 0; i < 20; i++)
-	{
-		p[i] = i;
-	}
-	for (int i = 0; i < 20; i++)
-	{
-		printf("%d ", p[i]);
-	}
-	//使用完：释放
-	free(p);   //释放动态内存开辟的空间
-	p = NULL;  //将p置空，防止野指针
+int main()
+{
+	test();
+	return 0;
 }
