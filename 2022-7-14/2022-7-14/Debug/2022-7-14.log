@@ -1,0 +1,4 @@
+﻿  test.c
+E:\code_2022\c.code\2022-7-14\2022-7-14\test.c(31,6): warning C4013: “test”未定义；假设外部返回 int
+test.obj : error LNK2019: 无法解析的外部符号 _test，函数 _main 中引用了该符号
+E:\code_2022\c.code\2022-7-14\Debug\2022-7-14.exe : fatal error LNK1120: 1 个无法解析的外部命令
