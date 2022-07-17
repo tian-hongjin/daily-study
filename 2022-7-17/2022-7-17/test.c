@@ -58,6 +58,8 @@
 //	pf1 = NULL;
 //	return 0;
 //}
+#include <stdio.h>
+#include <stdlib.h>
 
 //int main()
 //{
@@ -65,7 +67,7 @@
 //	FILE* pFile;
 //	char buffer[27];
 //	//以读写的方式打开文件
-//	pFile = fopen("myfile.txt", "w+");
+//	pFile = fopen("test.txt", "w+");
 //	//将字符 'A' - 'Z' 写入到文件中
 //	for (n = 'A'; n <= 'Z'; n++)
 //		fputc(n, pFile);
@@ -81,30 +83,30 @@
 //	return 0;
 //}
 
-//#include <stdio.h>
-//#include <stdlib.h>
-//int main(void)
-//{
-//	int c; //把c定义为int，使其有能力接受EOF(-1)
-//	FILE* fp = fopen("test.txt", "r");
-//	if (!fp)
-//	{
-//		perror("File opening failed");
-//		return EXIT_FAILURE;
-//	}
-//	//fgetc 当读取失败的时候或者遇到文件结束的时候，都会返回EOF
-//	while ((c = fgetc(fp)) != EOF) // 标准C I/O读取文件循环
-//	{
-//		putchar(c);
-//	}
-//	//循环结束，说明文件读取失败，判断是什么原因结束的
-//	if (ferror(fp))  //ferror(fp)为真，说明由读取失败引起
-//		puts("I/O error when reading");
-//	else if (feof(fp))  //feof(fp)为真，说明由遇到文件尾引起
-//		puts("End of file reached successfully");
-//	fclose(fp);
-//	fp = NULL;
-//}
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+	int c; //把c定义为int，使其有能力接受EOF(-1)
+	FILE* fp = fopen("test.txt", "r");
+	if (!fp)
+	{
+		perror("File opening failed");
+		return EXIT_FAILURE;
+	}
+	//fgetc 当读取失败的时候或者遇到文件结束的时候，都会返回EOF
+	while ((c = fgetc(fp)) != EOF) // 标准C I/O读取文件循环
+	{
+		putchar(c);
+	}
+	//循环结束，说明文件读取失败，判断是什么原因结束的
+	if (ferror(fp))  //ferror(fp)为真，说明由读取失败引起
+		puts("I/O error when reading");
+	else if (feof(fp))  //feof(fp)为真，说明由遇到文件尾引起
+		puts("End of file reached successfully");
+	fclose(fp);
+	fp = NULL;
+}
 
 //enum  //匿名联合体
 //{
@@ -139,22 +141,22 @@
 //	fp = NULL;
 //}
 
-#include <stdio.h>
-#include <windows.h>
-//VS2019 WIN11环境测试
-int main()
-{
-	FILE* pf = fopen("test.txt", "w");
-	fputs("abcdef", pf);//先将代码放在输出缓冲区
-	printf("睡眠10秒-已经写数据了，打开test.txt文件，发现文件没有内容\n");
-	Sleep(10000);
-	printf("刷新缓冲区\n");
-	fflush(pf);//刷新缓冲区时，才将输出缓冲区的数据写到文件（磁盘）
-	//注：fflush 在高版本的VS上不能使用了
-	printf("再睡眠10秒-此时，再次打开test.txt文件，文件有内容了\n");
-	Sleep(10000);
-	fclose(pf);
-	//注：fclose在关闭文件的时候，也会刷新缓冲区
-	pf = NULL;
-	return 0;
-}
+//#include <stdio.h>
+//#include <windows.h>
+////VS2019 WIN11环境测试
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "w");
+//	fputs("abcdef", pf);//先将代码放在输出缓冲区
+//	printf("睡眠10秒-已经写数据了，打开test.txt文件，发现文件没有内容\n");
+//	Sleep(10000);
+//	printf("刷新缓冲区\n");
+//	fflush(pf);//刷新缓冲区时，才将输出缓冲区的数据写到文件（磁盘）
+//	//注：fflush 在高版本的VS上不能使用了
+//	printf("再睡眠10秒-此时，再次打开test.txt文件，文件有内容了\n");
+//	Sleep(10000);
+//	fclose(pf);
+//	//注：fclose在关闭文件的时候，也会刷新缓冲区
+//	pf = NULL;
+//	return 0;
+//}
