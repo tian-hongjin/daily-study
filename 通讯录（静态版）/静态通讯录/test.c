@@ -24,43 +24,43 @@ enum Option {
 
 int main()
 {
-	printf("Í¨Ñ¶Â¼£¨ÎÄ¼ş°æ£©\n");
+	printf("é€šè®¯å½•ï¼ˆé™æ€ç‰ˆï¼‰\n");
 	int input = 0;
-	Contact con;  //´´½¨Í¨Ñ¶Â¼±äÁ¿
-	InitContact(&con);  //³õÊ¼»¯Í¨Ñ¶Â¼
+	Contact con;  //åˆ›å»ºé€šè®¯å½•å˜é‡
+	InitContact(&con);  //åˆå§‹åŒ–é€šè®¯å½•
 	do
 	{
-		menu();  //²Ëµ¥
-		printf("ÇëÑ¡Ôñ:>");
+		menu();  //èœå•
+		printf("è¯·é€‰æ‹©:>");
 		scanf("%d", &input);
 		switch (input)
 		{
 		case EXIT:
-			printf("ÍË³öÍ¨Ñ¶Â¼\n");
+			printf("é€€å‡ºé€šè®¯å½•\n");
 			break;
 		case ADD:
-			AddPeoInfo(&con);  //Ìí¼ÓÁªÏµÈËĞÅÏ¢
+			AddPeoInfo(&con);  //æ·»åŠ è”ç³»äººä¿¡æ¯
 			break;
 		case DEL:
-			DeletePeoInfo(&con);  //É¾³ıÁªÏµÈËĞÅÏ¢
+			DeletePeoInfo(&con);  //åˆ é™¤è”ç³»äººä¿¡æ¯
 			break;
 		case SEARCH:
-			SearchPeoInfo(&con);  //²éÕÒÁªÏµÈËĞÅÏ¢²¢´òÓ¡
+			SearchPeoInfo(&con);  //æŸ¥æ‰¾è”ç³»äººä¿¡æ¯å¹¶æ‰“å°
 			break;
 		case MODIFY:
-			ModifyPeoInfo(&con);  //ĞŞ¸ÄÁªÏµÈËĞÅÏ¢
+			ModifyPeoInfo(&con);  //ä¿®æ”¹è”ç³»äººä¿¡æ¯
 			break;
 		case SORT:
-			SortContact(&con);  //¶ÔÍ¨Ñ¶Â¼½øĞĞÅÅĞò(°´ĞÕÃû)
+			SortContact(&con);  //å¯¹é€šè®¯å½•è¿›è¡Œæ’åº(æŒ‰å§“å)
 			break;
 		case SHOW:
-			ShowPeoInfo(&con);  //ÏÔÊ¾È«²¿ÁªÏµÈËĞÅÏ¢
+			ShowPeoInfo(&con);  //æ˜¾ç¤ºå…¨éƒ¨è”ç³»äººä¿¡æ¯
 			break;
 		case CLEAR:
-			ClearContact(&con);  //Çå¿ÕËùÓĞÁªÏµÈË
+			ClearContact(&con);  //æ¸…ç©ºæ‰€æœ‰è”ç³»äºº
 			break;
 		default:
-			printf("ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë!\n");
+			printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥!\n");
 			break;
 		}
 	} while (input);
